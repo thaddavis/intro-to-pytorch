@@ -111,13 +111,13 @@ class data_plot:
         y = self.y_train
         pos = y == 1
         neg = y == 0
-        self.ax.scatter(x[pos], y[pos], marker='x', s=80, c = 'red', label="malignant")
-        self.ax.scatter(x[neg], y[neg], marker='o', s=100, label="benign", facecolors='none',
+        self.ax.scatter(x[pos], y[pos], marker='x', s=80, c = 'red', label="Cool")
+        self.ax.scatter(x[neg], y[neg], marker='o', s=100, label="Wack", facecolors='none',
                    edgecolors=dlc["dlblue"],lw=3)
         self.ax.set_ylim(-0.175,1.1)
         self.ax.set_ylabel('y')
-        self.ax.set_xlabel('Tumor Size')
-        self.ax.set_title("Logistic Regression on Categorical Data")
+        self.ax.set_xlabel('Number line')
+        self.ax.set_title("Logistic Regression on Cool/Wack Number data")
 
     def update(self, w, b):
         self.w = w
