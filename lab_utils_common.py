@@ -258,16 +258,16 @@ def plot_data(X, y, ax, pos_label="y=1", neg_label="y=0", s=80, loc='best' ):
     ax.figure.canvas.footer_visible = False
 
 def plt_data(x, y, ax):
-    """ plots tumor data on one axis """
+    """ plots data on one axis """
     pos = y == 1
     neg = y == 0
 
-    ax.scatter(x[pos], y[pos], marker='x', s=80, c = 'red', label="malignant")
-    ax.scatter(x[neg], y[neg], marker='o', s=100, label="benign", facecolors='none', edgecolors=dlblue,lw=3)
+    ax.scatter(x[pos], y[pos], marker='x', s=80, c = 'red', label="Cool")
+    ax.scatter(x[neg], y[neg], marker='o', s=100, label="Wack", facecolors='none', edgecolors=dlblue,lw=3)
     ax.set_ylim(-0.175,1.1)
     ax.set_ylabel('y')
-    ax.set_xlabel('Tumor Size')
-    ax.set_title("Logistic Regression on Categorical Data")
+    ax.set_xlabel('Number line')
+    ax.set_title("Logistic Regression on Cool Numbers")
 
     ax.figure.canvas.toolbar_visible = False
     ax.figure.canvas.header_visible = False
