@@ -245,7 +245,7 @@ def plot_data(X, y, ax, pos_label="y=1", neg_label="y=0", s=80, loc='best' ):
     # Find Indices of Positive and Negative Examples
     pos = y == 1
     neg = y == 0
-    pos = pos.reshape(-1,)  #work with 1D or 1D y vectors
+    pos = pos.reshape(-1,)  # work with 1D or 1D y vectors
     neg = neg.reshape(-1,)
 
     # Plot examples
@@ -257,7 +257,7 @@ def plot_data(X, y, ax, pos_label="y=1", neg_label="y=0", s=80, loc='best' ):
     ax.figure.canvas.header_visible = False
     ax.figure.canvas.footer_visible = False
 
-def plt_tumor_data(x, y, ax):
+def plt_data(x, y, ax):
     """ plots tumor data on one axis """
     pos = y == 1
     neg = y == 0
