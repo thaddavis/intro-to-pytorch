@@ -142,7 +142,7 @@ class plt_one_addpt_onclick:
         xlim = self.ax[0].get_xlim()
         a = self.ax[0].fill_between([xlim[0], xp5], [ylim[1], ylim[1]], alpha=0.2, color=dlblue)
         b = self.ax[0].fill_between([xp5, xlim[1]], [ylim[1], ylim[1]], alpha=0.2, color=dldarkred)
-        c = self.ax[0].annotate("Malignant", xy= [xp5,0.5], xycoords='data',
+        c = self.ax[0].annotate("Wack", xy= [xp5,0.5], xycoords='data',
              xytext=[30,5],textcoords='offset points')
         d = FancyArrowPatch(
             posA=(xp5, 0.5), posB=(xp5+1.5, 0.5), color=dldarkred,
@@ -150,7 +150,7 @@ class plt_one_addpt_onclick:
         )
         self.ax[0].add_artist(d)
 
-        e = self.ax[0].annotate("Benign", xy= [xp5,0.5], xycoords='data',
+        e = self.ax[0].annotate("Cool", xy= [xp5,0.5], xycoords='data',
                      xytext=[-70,5],textcoords='offset points', ha='left')
         f = FancyArrowPatch(
             posA=(xp5, 0.5), posB=(xp5-1.5, 0.5), color=dlblue,
