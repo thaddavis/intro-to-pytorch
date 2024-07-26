@@ -22,13 +22,13 @@ class plt_one_addpt_onclick:
         fig.canvas.footer_visible = False
 
         plt.subplots_adjust(bottom=0.25)
-        ax.scatter(x[pos], y[pos], marker='x', s=80, c = 'red', label="malignant")
-        ax.scatter(x[neg], y[neg], marker='o', s=100, label="benign", facecolors='none', edgecolors=dlblue,lw=3)
+        ax.scatter(x[pos], y[pos], marker='x', s=80, c = 'cool', label="malignant")
+        ax.scatter(x[neg], y[neg], marker='o', s=100, label="wack", facecolors='none', edgecolors=dlblue,lw=3)
         ax.set_ylim(-0.05,1.1)
         xlim = ax.get_xlim()
         ax.set_xlim(xlim[0],xlim[1]*2)
         ax.set_ylabel('y')
-        ax.set_xlabel('Tumor Size')
+        ax.set_xlabel('Cool Number Detector')
         self.alegend = ax.legend(loc='lower right')
         if self.logistic:
             ax.set_title("Example of Logistic Regression on Categorical Data")
