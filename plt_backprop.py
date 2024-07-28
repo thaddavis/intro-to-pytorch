@@ -110,7 +110,7 @@ class data_plot:
         self.ax.set_ylim(-0.175,1.1)
         self.ax.set_ylabel('y')
         self.ax.set_xlabel('Number line')
-        self.ax.set_title("Logistic Regression on Cool/Wack Number data")
+        self.ax.set_title("Backpropagation on Cool/Wack Number data")
 
     def update(self, w, b):
         self.w = w
