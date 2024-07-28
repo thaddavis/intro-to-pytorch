@@ -274,7 +274,7 @@ def plt_data(x, y, ax):
     ax.figure.canvas.footer_visible = False
 
 # Draws a threshold at 0.5
-def draw_vthresh(ax,x):
+def draw_threshold(ax,x):
     """ draws a threshold """
     ylim = ax.get_ylim()
     xlim = ax.get_xlim()
