@@ -52,7 +52,7 @@ class plt_quad_logistic:
         # initialize subplots
         self.dplot = data_plot(ax[0], x_train, y_train, self.w, self.b)
         # self.con_plot = contour_and_surface_plot(ax[1], ax[2], x_train, y_train, w_range, b_range, self.w, self.b)
-        self.cplot = cost_plot(ax[3])
+        self.cplot = cost_plot(ax[1])
 
         # setup events
         self.cid = fig.canvas.mpl_connect('button_press_event', self.click_contour)
