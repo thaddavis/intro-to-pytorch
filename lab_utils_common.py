@@ -278,7 +278,7 @@ def draw_vthresh(ax,x):
     """ draws a threshold """
     ylim = ax.get_ylim()
     xlim = ax.get_xlim()
-    ax.fill_between([xlim[0], x], [ylim[1], ylim[1]], alpha=0.2, color=dlblue)
+    ax.fill_between([xlim[0], x], [ylim[1], ylim[1]], alpha=0.2, color='white')
     ax.fill_between([x, xlim[1]], [ylim[1], ylim[1]], alpha=0.2, color=dldarkred)
     ax.annotate("z >= 0", xy= [x,0.5], xycoords='data',
                 xytext=[30,5],textcoords='offset points')
