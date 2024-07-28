@@ -18,7 +18,7 @@ np.set_printoptions(precision=2)
 dlc = dict(dlblue = '#0096ff', dlorange = '#FF9300', dldarkred='#C00000', dlmagenta='#FF40FF', dlpurple='#7030A0')
 dlblue = '#0096ff'; dlorange = '#FF9300'; dldarkred='#C00000'; dlmagenta='#FF40FF'; dlpurple='#7030A0'
 dlcolors = [dlblue, dlorange, dldarkred, dlmagenta, dlpurple]
-plt.style.use('./deeplearning.mplstyle')
+plt.style.use('./intro_to_pytorch.mplstyle')
 
 def sigmoid(z):
     """
