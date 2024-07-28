@@ -31,14 +31,16 @@ class plt_quad_logistic:
         fig.set_facecolor('#ffffff') #white
         gs  = GridSpec(2, 2, figure=fig)
         ax0 = fig.add_subplot(gs[0, 0])
-        ax1 = fig.add_subplot(gs[0, 1])
-        ax2 = fig.add_subplot(gs[1, 0],  projection='3d')
-        ax3 = fig.add_subplot(gs[1,1])
+        # ax1 = fig.add_subplot(gs[0, 1])
+        # ax2 = fig.add_subplot(gs[1, 0],  projection='3d')
+        # ax3 = fig.add_subplot(gs[1,1])
+        ax3 = fig.add_subplot(gs[0,1])
         pos = ax3.get_position().get_points()  ##[[lb_x,lb_y], [rt_x, rt_y]]
         h = 0.05 
         width = 0.2
         axcalc   = plt.axes([pos[1,0]-width, pos[1,1]-h, width, h])  #lx,by,w,h
-        ax = np.array([ax0, ax1, ax2, ax3, axcalc])
+        # ax = np.array([ax0, ax1, ax2, ax3, axcalc])
+        ax = np.array([ax0, ax3, axcalc])
         self.fig = fig
         self.ax = ax
         self.x_train = x_train
