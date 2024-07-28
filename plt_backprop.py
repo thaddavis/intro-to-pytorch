@@ -47,25 +47,12 @@ class plt_backprop:
         self.cplot = cost_plot(ax[1])
 
         # setup events
-        self.cid = fig.canvas.mpl_connect('button_press_event', self.click_contour)
         
         self.bcalc = Button(axcalc, '\nRun backpropagation\n', color=dlc["dllightblue"])
-        self.bcalc.on_clicked(self.calc_logistic)
+        self.bcalc.on_clicked(self.backpropagate)
 
 #    @output.capture()  # debug
-    def click_contour(self, event):
-        ''' called when click in contour '''
-        if event.inaxes == self.ax[1]:   #contour plot
-            self.w = event.xdata
-            self.b = event.ydata
-
-            self.cplot.re_init()
-            self.dplot.update(self.w, self.b)
-
-            self.fig.canvas.draw()
-
-#    @output.capture()  # debug
-    def calc_logistic(self, event):
+    def backpropagate(self, event):
         ''' called on run gradient event '''
         for it in [1, 8,16,32,64,128,256,512,1024,2048,4096]:
             w, self.b, J_hist = gradient_descent(self.x_train.reshape(-1,1), self.y_train.reshape(-1,1),
@@ -73,8 +60,6 @@ class plt_backprop:
                                                  logistic=True, lambda_=0, verbose=False)
             self.w = w[0,0]
             self.dplot.update(self.w, self.b)
-            # self.con_plot.update_contour_wb_lines(self.w, self.b)
-            # self.con_plot.path.add_path_item(self.w,self.b)
             self.cplot.add_cost(J_hist)
 
             time.sleep(0.3)
@@ -171,7 +156,7 @@ class cost_plot:
     def __init__(self,ax):
         self.ax = ax
         self.ax.set_ylabel("Cost score")
-        self.ax.set_xlabel("iteration")
+        self.ax.set_xlabel("adjustments")
         self.costs = []
         self.cline = self.ax.plot(0,0, color=dlc["dlblue"])
 
