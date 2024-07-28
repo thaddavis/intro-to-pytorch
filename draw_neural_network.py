@@ -25,10 +25,10 @@ def draw_neural_net(ax, left, right, bottom, top, layer_sizes):
             # Annotation
             if n == 0:
                 ax.annotate(f'Input {m+1}', (n*h_spacing + left, layer_top - m*v_spacing), 
-                            textcoords="offset points", xytext=(-25,5), ha='center', fontsize=12, color='blue')
+                            textcoords="offset points", xytext=(-25,25), ha='center', fontsize=12, color='blue')
             elif n == len(layer_sizes) - 1:
                 ax.annotate(f'Output {m+1}', (n*h_spacing + left, layer_top - m*v_spacing), 
-                            textcoords="offset points", xytext=(25,5), ha='center', fontsize=12, color='blue')
+                            textcoords="offset points", xytext=(25,25), ha='center', fontsize=12, color='blue')
             else:
                 ax.annotate(f'Hidden {n}-{m+1}', (n*h_spacing + left, layer_top - m*v_spacing), 
                             textcoords="offset points", xytext=(0,-25), ha='center', fontsize=12, color='blue')
