@@ -267,7 +267,7 @@ def plt_data(x, y, ax):
     ax.set_ylim(-0.175,1.1)
     ax.set_ylabel('y')
     ax.set_xlabel('Number line')
-    ax.set_title("Logistic Regression on Cool Numbers")
+    ax.set_title("Cool Numbers")
 
     ax.figure.canvas.toolbar_visible = False
     ax.figure.canvas.header_visible = False
