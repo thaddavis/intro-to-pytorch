@@ -31,7 +31,7 @@ def draw_neural_net(ax, left, right, bottom, top, layer_sizes):
                             textcoords="offset points", xytext=(25,25), ha='center', fontsize=12, color='blue')
             else:
                 ax.annotate(f'Hidden {n}-{m+1}', (n*h_spacing + left, layer_top - m*v_spacing), 
-                            textcoords="offset points", xytext=(0,-25), ha='center', fontsize=12, color='blue')
+                            textcoords="offset points", xytext=(0,25), ha='center', fontsize=12, color='blue')
     
     # Edges
     for n, (layer_size_a, layer_size_b) in enumerate(zip(layer_sizes[:-1], layer_sizes[1:])):
