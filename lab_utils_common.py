@@ -280,14 +280,14 @@ def draw_threshold(ax,x):
     xlim = ax.get_xlim()
     ax.fill_between([xlim[0], x], [ylim[1], ylim[1]], alpha=0.2, color='white')
     ax.fill_between([x, xlim[1]], [ylim[1], ylim[1]], alpha=0.2, color=dldarkred)
-    ax.annotate("output >= 0.5", xy= [x,0.5], xycoords='data',
+    ax.annotate(">= 0.5", xy= [x,0.5], xycoords='data',
                 xytext=[30,5],textcoords='offset points')
     d = FancyArrowPatch(
         posA=(x, 0.5), posB=(x+3, 0.5), color=dldarkred,
         arrowstyle='simple, head_width=5, head_length=10, tail_width=0.0',
     )
     ax.add_artist(d)
-    ax.annotate("output < 0.5", xy= [x,0.5], xycoords='data',
+    ax.annotate("< 0.5", xy= [x,0.5], xycoords='data',
                  xytext=[-50,5],textcoords='offset points', ha='left')
     f = FancyArrowPatch(
         posA=(x, 0.5), posB=(x-3, 0.5), color=dlblue,
