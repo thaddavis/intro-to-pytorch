@@ -170,7 +170,7 @@ class cost_plot:
     # pylint: disable=attribute-defined-outside-init
     def __init__(self,ax):
         self.ax = ax
-        self.ax.set_ylabel("log(cost)")
+        self.ax.set_ylabel("Cost score")
         self.ax.set_xlabel("iteration")
         self.costs = []
         self.cline = self.ax.plot(0,0, color=dlc["dlblue"])
