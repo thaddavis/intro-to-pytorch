@@ -51,7 +51,7 @@ class plt_quad_logistic:
 
         # initialize subplots
         self.dplot = data_plot(ax[0], x_train, y_train, self.w, self.b)
-        self.con_plot = contour_and_surface_plot(ax[1], ax[2], x_train, y_train, w_range, b_range, self.w, self.b)
+        # self.con_plot = contour_and_surface_plot(ax[1], ax[2], x_train, y_train, w_range, b_range, self.w, self.b)
         self.cplot = cost_plot(ax[3])
 
         # setup events
@@ -68,8 +68,8 @@ class plt_quad_logistic:
 
             self.cplot.re_init()
             self.dplot.update(self.w, self.b)
-            self.con_plot.update_contour_wb_lines(self.w, self.b)
-            self.con_plot.path.re_init(self.w, self.b)
+            # self.con_plot.update_contour_wb_lines(self.w, self.b)
+            # self.con_plot.path.re_init(self.w, self.b)
 
             self.fig.canvas.draw()
 
@@ -82,8 +82,8 @@ class plt_quad_logistic:
                                                  logistic=True, lambda_=0, verbose=False)
             self.w = w[0,0]
             self.dplot.update(self.w, self.b)
-            self.con_plot.update_contour_wb_lines(self.w, self.b)
-            self.con_plot.path.add_path_item(self.w,self.b)
+            # self.con_plot.update_contour_wb_lines(self.w, self.b)
+            # self.con_plot.path.add_path_item(self.w,self.b)
             self.cplot.add_cost(J_hist)
 
             time.sleep(0.3)
