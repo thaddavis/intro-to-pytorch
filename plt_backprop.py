@@ -1,6 +1,5 @@
 """
-plt_quad_logistic.py
-    interactive plot and supporting routines showing logistic regression
+plt_backprop.py
 """
 
 import time
@@ -10,14 +9,12 @@ from matplotlib.gridspec import GridSpec
 from matplotlib.widgets import Button
 from matplotlib.patches import FancyArrowPatch
 from ipywidgets import Output
-from lab_utils_common import np, plt, dlc, dlcolors, sigmoid, compute_cost_matrix, gradient_descent
+from lab_utils_common import np, plt, dlc, sigmoid, compute_cost_matrix, gradient_descent
 
-# for debug
-#output = Output() # sends hidden error messages to display when using widgets
-#display(output)
+dlc["dllightblue"] = '#add8e6'  # Light blue color hex code
 
-class plt_quad_logistic:
-    ''' plots a quad plot showing logistic regression '''
+class plt_backprop:
+    ''' plots backprop on a single neuron'''
     # pylint: disable=too-many-instance-attributes
     # pylint: disable=too-many-locals
     # pylint: disable=missing-function-docstring
@@ -29,18 +26,14 @@ class plt_quad_logistic:
         fig.canvas.header_visible = False
         fig.canvas.footer_visible = False
         fig.set_facecolor('#ffffff') #white
-        gs  = GridSpec(2, 2, figure=fig)
+        gs  = GridSpec(1, 2, figure=fig)
         ax0 = fig.add_subplot(gs[0, 0])
-        # ax1 = fig.add_subplot(gs[0, 1])
-        # ax2 = fig.add_subplot(gs[1, 0],  projection='3d')
-        # ax3 = fig.add_subplot(gs[1,1])
-        ax3 = fig.add_subplot(gs[0,1])
-        pos = ax3.get_position().get_points()  ##[[lb_x,lb_y], [rt_x, rt_y]]
+        ax1 = fig.add_subplot(gs[0,1])
+        pos = ax1.get_position().get_points()  ##[[lb_x,lb_y], [rt_x, rt_y]]
         h = 0.05 
         width = 0.2
         axcalc   = plt.axes([pos[1,0]-width, pos[1,1]-h, width, h])  #lx,by,w,h
-        # ax = np.array([ax0, ax1, ax2, ax3, axcalc])
-        ax = np.array([ax0, ax3, axcalc])
+        ax = np.array([ax0, ax1, axcalc])
         self.fig = fig
         self.ax = ax
         self.x_train = x_train
@@ -51,12 +44,12 @@ class plt_quad_logistic:
 
         # initialize subplots
         self.dplot = data_plot(ax[0], x_train, y_train, self.w, self.b)
-        # self.con_plot = contour_and_surface_plot(ax[1], ax[2], x_train, y_train, w_range, b_range, self.w, self.b)
         self.cplot = cost_plot(ax[1])
 
         # setup events
         self.cid = fig.canvas.mpl_connect('button_press_event', self.click_contour)
-        self.bcalc = Button(axcalc, 'Run Gradient Descent \nfrom current w,b (click)', color=dlc["dlorange"])
+        
+        self.bcalc = Button(axcalc, '\nRun backpropagation\n', color=dlc["dllightblue"])
         self.bcalc.on_clicked(self.calc_logistic)
 
 #    @output.capture()  # debug
