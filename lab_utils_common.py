@@ -17,6 +17,26 @@ def sigmoid(z):
 
     return g
 
+def compute_cost_logistic(X, y, w, b, lambda_=0, safe=False):
+    m,n = X.shape
+    cost = 0.0
+    for i in range(m):
+        z_i    = np.dot(X[i],w) + b                                             #(n,)(n,) or (n,) ()
+        if safe:  #avoids overflows
+            cost += -(y[i] * z_i ) + log_1pexp(z_i)
+        else:
+            f_wb_i = sigmoid(z_i)                                                   #(n,)
+            cost  += -y[i] * np.log(f_wb_i) - (1 - y[i]) * np.log(1 - f_wb_i)       # scalar
+    cost = cost/m
+
+    reg_cost = 0
+    if lambda_ != 0:
+        for j in range(n):
+            reg_cost += (w[j]**2)                                               # scalar
+        reg_cost = (lambda_/(2*m))*reg_cost
+
+    return cost + reg_cost
+
 def log_1pexp(x, maximum=20):
     out  = np.zeros_like(x,dtype=float)
     i    = x <= maximum
