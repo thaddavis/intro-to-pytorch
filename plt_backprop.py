@@ -7,7 +7,7 @@ from matplotlib.gridspec import GridSpec
 from matplotlib.widgets import Button
 from lab_utils_common import np, plt, dlc, sigmoid, compute_cost_matrix, gradient_descent
 
-dlc["dllightblue"] = '#add8e6'  # Light blue color hex code
+dlc["dllightblue"] = '#add8e6'
 
 class plt_backprop:
     def __init__(self, x_train,y_train, w_range, b_range):
@@ -15,7 +15,7 @@ class plt_backprop:
         fig.canvas.toolbar_visible = False
         fig.canvas.header_visible = False
         fig.canvas.footer_visible = False
-        fig.set_facecolor('#ffffff') #white
+        fig.set_facecolor('#ffffff')
         gs  = GridSpec(1, 2, figure=fig)
         ax0 = fig.add_subplot(gs[0, 0])
         ax1 = fig.add_subplot(gs[0,1])
