@@ -168,31 +168,3 @@ class cost_plot:
         self.costs.extend(J_hist)
         self.cline[0].remove()
         self.cline = self.ax.plot(self.costs)
-
-class path:
-    ''' tracks paths during gradient descent on contour plot '''
-    # pylint: disable=missing-function-docstring
-    # pylint: disable=attribute-defined-outside-init
-    def __init__(self, w, b, ax):
-        ''' w, b at start of path '''
-        self.path_items = []
-        self.w = w
-        self.b = b
-        self.ax = ax
-
-    def re_init(self, w, b):
-        for artist in self.path_items:
-            artist.remove()
-        self.path_items = []
-        self.w = w
-        self.b = b
-
-    def add_path_item(self, w, b):
-        a = FancyArrowPatch(
-            posA=(self.w, self.b), posB=(w, b), color=dlc["dlblue"],
-            arrowstyle='simple, head_width=5, head_length=10, tail_width=0.0',
-        )
-        self.ax.add_artist(a)
-        self.path_items.append(a)
-        self.w = w
-        self.b = b
